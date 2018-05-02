@@ -2,9 +2,11 @@ package alphabetapp.fit.enu.kz.alphabetapp;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -66,6 +68,36 @@ public class ActivityTest extends AppCompatActivity {
         updateQuestion();
         updateScore(mScore);
 
+        final Animation animTranslate = AnimationUtils.loadAnimation(this, R.anim.alpha);
+/*        mChoice1 = (Button)findViewById(R.id.choice1);
+        mChoice2 = (Button)findViewById(R.id.choice2);
+        mChoice3 = (Button)findViewById(R.id.choice3);
+        mChoice4 = (Button)findViewById(R.id.choice4);*/
+/*        mChoice1.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                view.startAnimation(animTranslate);
+            }
+        });
+        mChoice2.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                view.startAnimation(animTranslate);
+            }
+        });
+        mChoice3.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                view.startAnimation(animTranslate);
+            }
+        });
+        mChoice3.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                view.startAnimation(animTranslate);
+            }
+        });*/
+
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,6 +112,7 @@ public class ActivityTest extends AppCompatActivity {
                                 updateQuestion();
                             }
                         }
+                        view.startAnimation(animTranslate);
                         break;
                     case R.id.choice2:
                         if (mChoice2.getText() == mAnswer){
@@ -89,6 +122,7 @@ public class ActivityTest extends AppCompatActivity {
                         } else {
                             updateQuestion();
                         }
+                        view.startAnimation(animTranslate);
                         break;
                     case R.id.choice3:
                         if (mChoice3.getText() == mAnswer){
@@ -98,6 +132,7 @@ public class ActivityTest extends AppCompatActivity {
                         } else {
                             updateQuestion();
                         }
+                        view.startAnimation(animTranslate);
                         break;
                     case R.id.choice4:
                         if (mChoice4.getText() == mAnswer){
@@ -107,6 +142,7 @@ public class ActivityTest extends AppCompatActivity {
                         } else {
                             updateQuestion();
                         }
+                        view.startAnimation(animTranslate);
                         break;
 
                 }

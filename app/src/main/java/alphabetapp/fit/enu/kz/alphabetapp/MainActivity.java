@@ -9,20 +9,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.SeekBar;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String alphabet [] = {"A - А", "A' - Ә", "B - Б", "D - Д", "E - Е", "F - Ф", "G - Г", "G' - Ғ", "H - Х, Һ", "I - І", "I' - И, Й", "J - Ж", "K - К", "L - Л", "M - М", "N - Н", "N' - Ң",
                                               "O - О", "O' - Ө", "P - П", "Q - Қ", "R - Р", "S - С", "S' - Ш", "C' - Ч", "T - Т", "U - Ұ", "U' - Ү", "V - В", "Y - Ы", "Y' - У", "Z - З"};
 
-    public static final String words[] = {"A - Alma", "A' - A'ke", "B - Bala", "D - Day'ys", "E - Ertegi", "F - Format", "G - Gu'l", "G' - G'asyr", "H - Hat", "I - Ine", "I' - I'od", "J - Jolbarys", "K - Kitap",
+    public static final String words[] = {"A - Alma", "A' - A'ke", "B - Bala", "D - Day'ys", "E - Ertegi", "F - Futbol", "G - Gu'l", "G' - G'asyr", "H - Hat", "I - Ine", "I' - I'od", "J - Jolbarys", "K - Kitap",
                                           "L - Las'yk", "M - Mons'aq", "N - Nemere", "N' - Tan'", "O - Oqtay'", "O' - O'mir", "P - Parasat", "Q - Qala", "R - Respubli'ka", "S - Sezim", "S' - S'ana", "C' - C'emodan", "T - Tasbaqa", "U - Ulys", "U' - U'mit", "V - Vagon", "Y - Yrys", "Y' - Y'yldyryq", "Z - Zebra" };
+
+    public static final int images[] = {R.drawable.l1, R.drawable.l2, R.drawable.l3, R.drawable.l4, R.drawable.l5, R.drawable.l6,
+            R.drawable.l7, R.drawable.l8, R.drawable.l9, R.drawable.l10, R.drawable.l11, R.drawable.l12, R.drawable.l13,
+            R.drawable.l14, R.drawable.l15, R.drawable.l16, R.drawable.l17, R.drawable.l18, R.drawable.l19, R.drawable.l20,
+            R.drawable.l21, R.drawable.l22, R.drawable.l23, R.drawable.l24, R.drawable.l25, R.drawable.l26, R.drawable.l26, R.drawable.l26, R.drawable.l2, R.drawable.l2, R.drawable.l2, R.drawable.l2, R.drawable.l2, };
 
    public TextView textView, textViewWords;
    Button btnNext, btnLast;
+   ImageView alphabetImageView;
    int index = 0;
    int intSize;
    String size;
@@ -33,8 +38,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+        alphabetImageView = (ImageView) findViewById(R.id.alphabetImageView);
+        alphabetImageView.setImageResource(R.drawable.l1);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
         textView = (TextView) findViewById(R.id.textView);
         textViewWords = (TextView) findViewById(R.id.textViewWords);
         textView.setText(alphabet[0]);
@@ -69,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                     index++;
                 }
                 textView.setText(alphabet[index]);
+                alphabetImageView.setImageResource(images[index]);
                 textViewWords.setText(words[index]);
             }
         });
@@ -79,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 if (index > 0){
                     index--;
                     textView.setText(alphabet[index]);
+                    alphabetImageView.setImageResource(images[index]);
                     textViewWords.setText(words[index]);
                 }
             }
